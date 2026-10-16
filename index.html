@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -2167,7 +2166,7 @@ $('btn-voice-input').onclick = () => {
 };
 
 /* ---------- 10. PERSISTENT MEMORY ENGINE (Sec 4) ---------- */
-const SENSITIVE_SECRET_RE = /(AIza[0-9A-Za-z-_]{35}|sk-[a-zA-Z0-9]{20,}|password\s*[:=]\s*\S+|secret\s*[:=]\s*\S+)/i;
+const SENSITIVE_SECRET_RE = /(AIza|password\s*[:=]\s*\S+|secret\s*[:=]\s*\S+)/i;
 
 async function storeMemoryCandidate(category, content, source = 'MANUAL') {
     if (SENSITIVE_SECRET_RE.test(content)) {
