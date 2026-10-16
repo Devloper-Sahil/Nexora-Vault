@@ -1,7 +1,13 @@
 // ==========================================
 // VROXIT GOD LEVEL PWA & NATIVE APP ENGINE
 // ==========================================
-
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then((reg) => console.log('Service Worker registered!', reg))
+      .catch((err) => console.log('Service Worker failed:', err));
+  });
+}
 let deferredPwaPrompt = null;
 const isAppStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
